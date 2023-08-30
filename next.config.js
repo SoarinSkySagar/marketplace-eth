@@ -2,7 +2,7 @@
 
 
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: [
       "thrangra.sirv.com"
