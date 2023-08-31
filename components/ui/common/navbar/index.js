@@ -11,7 +11,6 @@ export default function Footer() {
 
   return (
     <section className="mb-16">
-      {account}
       <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
         <nav className="relative" aria-label="Global">
           <div className="flex justify-between">
@@ -48,7 +47,11 @@ export default function Footer() {
                   <span
                   className="opacity-50 px-8 py-3 rounded-md border text-base font-medium text-white bg-indigo-600 whitespace-nowrap cursor-not-allowed">
                     Loading...
-                  </span> : isWeb3Loaded ? 
+                  </span> : isWeb3Loaded ? account ?
+                  <span
+                  className="px-8 py-3 rounded-md border text-base font-medium text-white bg-indigo-600 whitespace-nowrap cursor-default">
+                    Hi there!
+                  </span> :
                   <span
                   onClick={connect}
                   className="px-8 py-3 rounded-md border text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 whitespace-nowrap cursor-pointer">
@@ -67,6 +70,12 @@ export default function Footer() {
           </div>
         </nav>
       </div>
+      {account &&
+        <div className="flex justify-end sm:px-6 lg:px-8 pt-3">
+          <div className="text-white bg-indigo-600 rounded-md p-2">
+           {account}
+          </div>
+      </div>}
     </section>
   )
 }
