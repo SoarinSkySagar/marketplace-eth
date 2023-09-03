@@ -47,10 +47,10 @@ export default function Footer() {
                   <span
                   className="opacity-50 px-8 py-3 rounded-md border text-base font-medium text-white bg-indigo-600 whitespace-nowrap cursor-not-allowed">
                     Loading...
-                  </span> : isWeb3Loaded ? account ?
+                  </span> : isWeb3Loaded ? account.data ?
                   <span
                   className="px-8 py-3 rounded-md border text-base font-medium text-white bg-indigo-600 whitespace-nowrap cursor-default">
-                    Hi there!
+                    Hi there {account.isAdmin ? "Admin" : ""}
                   </span> :
                   <span
                   onClick={connect}
@@ -70,10 +70,10 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      {account &&
+      {account.data &&
         <div className="flex justify-end sm:px-6 lg:px-8 pt-3">
           <div className="text-white bg-indigo-600 rounded-md p-2">
-           {account}
+           {account.data}
           </div>
       </div>}
     </section>
