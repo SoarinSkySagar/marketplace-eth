@@ -1,16 +1,18 @@
 import Link from "next/link"
 import { useWeb3 } from "@components/providers"
 import { useAccount } from "@components/web3/hooks/useAccount";
+import { useRouter } from "next/router";
 
 export default function Footer() {
 
   const { connect, isWeb3Loaded, web3, isLoading } = useWeb3();
   const {account} = useAccount()
+  const {pathname} = useRouter();
   
   
 
   return (
-    <section className="mb-16">
+    <section className="mb-7">
       <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
         <nav className="relative" aria-label="Global">
           <div className="flex justify-between">
@@ -21,7 +23,7 @@ export default function Footer() {
                   Home
                 </a>
               </Link>
-              <Link href="/" legacyBehavior >
+              <Link href="/marketplace" legacyBehavior >
                 <a
                   className="font-medium mr-8 text-gray-500 hover:text-gray-900">
                   Marketplace
@@ -70,7 +72,7 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      {account.data &&
+      {account.data  && !pathname.includes("/marketplace") &&
         <div className="flex justify-end sm:px-6 lg:px-8 pt-3">
           <div className="text-white bg-indigo-600 rounded-md p-2">
            {account.data}
